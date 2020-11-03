@@ -1,10 +1,10 @@
 package AH;
 
-public class pion {
+public class Pion {
     private char forme;
     private int position;
 
-    public pion(char forme, int position) {
+    public Pion(char forme, int position) {
         this.forme = forme;
         this.position = position;
 

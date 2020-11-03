@@ -1,13 +1,13 @@
 package AH;
 
-public class joueur {
+public class Joueur {
 
 
     private String name;
     private int numeroJoueur;
 
 
-    public joueur(String name, int numeroJoueur) {
+    public Joueur(String name, int numeroJoueur) {
         this.name = name;
         this.numeroJoueur = numeroJoueur;
     }

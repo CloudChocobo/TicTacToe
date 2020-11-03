@@ -1,9 +1,9 @@
 package AH;
-public class grille {
+public class Grille {
 
     private char[][] plateau;
 
-    public grille() {
+    public Grille() {
     plateau = new char[3][3];
     }
 

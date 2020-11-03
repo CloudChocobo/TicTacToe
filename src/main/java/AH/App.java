@@ -14,9 +14,9 @@ public final class App {
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-       joueur joueur1 = new joueur("Kiki", 1);
+       Joueur joueur1 = new Joueur("Kiki", 1);
      
-       grille plateau = new grille();
+       Grille plateau = new Grille();
 
        plateau.fillPlateau();
 
@@ -30,7 +30,7 @@ public final class App {
 
        System.out.println("\n" + "Tu as choisis: " + pickPion + "\n");
 
-       
+
 
        //System.out.println("Hello " + joueur1 + " !");
      

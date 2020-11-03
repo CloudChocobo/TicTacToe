@@ -1,6 +1,8 @@
 package AH;
 
 public class Pion {
+
+    
     private char forme;
     private int position;
 

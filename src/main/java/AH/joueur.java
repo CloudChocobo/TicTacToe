@@ -1,6 +1,7 @@
 package AH;
 
 public class Joueur {
+    
 
     private String name;
     private int numeroJoueur;

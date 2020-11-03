@@ -1,16 +1,15 @@
 package AH;
-
-import java.util.Arrays;
-
 public class grille {
 
-    private Arrays[][] plateau;
+    private char[][] plateau;
 
-    public grille(Arrays[][] plateau) {
-        this.plateau = plateau;
+    public grille() {
+    plateau = new char[3][3];
     }
 
-    
+   public void fillPlateau() {
 
+    System.out.println(plateau);
+   }
 
 }

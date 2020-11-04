@@ -1,14 +1,19 @@
 package AH;
 
-public class Pion {
+public enum Pion {
+    Croix("x"), Rond("o"), EMPTY(" ");
 
-    
-    private char forme;
-    private int position;
+    private String symbol;
 
-    public Pion(char forme, int position) {
-        this.forme = forme;
-        this.position = position;
+    private Pion(String symbol) {
+        this.setSymbol(symbol);
+    }
 
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 }

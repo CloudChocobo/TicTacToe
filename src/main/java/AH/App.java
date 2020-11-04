@@ -1,5 +1,6 @@
 package AH;
 
+
 import java.util.Scanner;
 
 /**
@@ -11,28 +12,43 @@ public final class App {
 
     /**
      * Says hello to the world.
-     * 
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-        Joueur joueur1 = new Joueur("Kiki", 1);
 
-        Grille plateau = new Grille();
+        /* CREATION DES JOUEURS */ 
+        Joueur joueur1 = new Joueur("Player_1", ' '); 
+        Joueur joueur2 = new Joueur("Player_2", ' '); 
 
-        plateau.fillPlateau();
+        /*CREATION DE LA GRID */
+        Grille plateau = new Grille(); 
 
-        System.out.println("\n" + "Bienvenue Joueur, quel est ton nom ?" + "\n");
-        Scanner scan = new Scanner(System.in);
+
+        /* START PLAYING */ 
+
+        System.out.println("\n" + "Bienvenue à toi, quel est ton nom ? " + "\n");
+        Scanner scan = new Scanner(System.in); 
         String nom = scan.next("[0-9A-Za-z]*");
 
-        System.out.println("\n" + "merci " + nom + ", choisis un pion, X ou O." + "\n");
+        System.out.println("\n" + "Merci " + nom + ". Choisis une lettre, soit X, soit O : " + "\n");
 
-        char pickPion = scan.next().charAt(0);
+        /*CHOOSE SYMBOL*/
+        joueur1.chooseSymboleJoueur1();
+        //joueur.displayChoice();
+        if (joueur1.getsymbolJoueur() == 'x' || joueur1.getsymbolJoueur() == 'X') {
+            joueur2.setsymbolJoueur('o');
+        } else {
+            joueur2.setsymbolJoueur('x');
+        }
+        // aficher console le choix du joueur 2
+        
+        
+        /*PRESENTATION DU TABLEAU */ 
+        
+        plateau.remplirTableau();
 
-        System.out.println("\n" + "Tu as choisi: " + pickPion + "\n");
-
-        // System.out.println("Hello " + joueur1 + " !");
-
+        
     }
-
 }
+
+

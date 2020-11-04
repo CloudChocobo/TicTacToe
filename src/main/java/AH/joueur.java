@@ -1,34 +1,62 @@
 package AH;
 
-public class Joueur {
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Joueur{
     
+    // Attributs de class
+    private String name; 
+    private char symbolJoueur; 
+    private App app; 
 
-    private String name;
-    private int numeroJoueur;
-
-    public Joueur(String name, int numeroJoueur) {
-        this.name = name;
-        this.numeroJoueur = numeroJoueur;
+    // Constructor
+    public Joueur(String name, char symbolJoueur) {
+        this.name = name; 
+        this.symbolJoueur = symbolJoueur; 
     }
-
-    public String getName() {
-        return name;
+    /*GETTER & SETTER */ 
+	public String getName() {
+		return name;
+	} 
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getsymbolJoueur() {
+		return symbolJoueur;
+	}
+	public void setsymbolJoueur(char symbolJoueur) {
+		this.symbolJoueur = symbolJoueur;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getNumeroJoueur() {
-        return numeroJoueur;
-    }
-
-    public void setNumeroJoueur(int numeroJoueur) {
-        this.numeroJoueur = numeroJoueur;
-    }
+    ///////////////////////////////
 
     @Override
     public String toString() {
-        return getName() + " " + getNumeroJoueur();
+        return
+            getName()+ " " /*+ getNumJoueur()*/;
     }
+
+    /*CHOISIR SYMBOLE POUR LES PLAYERS */ 
+
+    
+    public void chooseSymboleJoueur1(){
+        Scanner scan = new Scanner(System.in);
+        try {
+            char chooseSymbol = scan.next("[O|Xo|x]*").charAt(0);
+            if(chooseSymbol == 'x' || chooseSymbol =='X'){
+              this.symbolJoueur = 'X';  
+            }else if(chooseSymbol == 'o' || chooseSymbol =='O'){
+                this.symbolJoueur = 'O';  
+              }
+            System.out.println("\n" + "Tu es donc le " + this.name + " et tu auras le symbole : "  + this.symbolJoueur + "\n");
+        } catch (InputMismatchException e) {
+            System.out.println("Choisit une lettre, soit X, soit O !");
+        }
+        
+    }
+    
+         
+        System.out.println("\n" + "Le " + this.name + " auras donc le symbole : "  + this.symbolJoueur + "\n");
+    }
+
 }

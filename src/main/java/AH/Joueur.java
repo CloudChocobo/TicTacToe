@@ -4,7 +4,7 @@ public class Joueur {
 
     String name;
 
-    private Joueur(String name) {
+    public Joueur(String name) {
         this.setName(name);
     }
     
@@ -12,7 +12,9 @@ public class Joueur {
          return name;
     }
 
-    private void setName(String name) {
+    
+    
+    public void setName(String name) {
         this.name = name;
     }
 

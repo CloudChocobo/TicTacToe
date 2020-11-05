@@ -6,11 +6,12 @@ public class Morpion {
 
     private Board board;
     private Pion currentSquare;
-    private Joueur name;
+    private Joueur player;
 
         
     public Morpion() {
         this.board = new Board();
+        this.player = new Joueur("Toto");
         System.out.println("\n" + "Bienvenue au jeu du morpion ! <3 <3 <3" + "\n");
     }
 
@@ -19,7 +20,6 @@ public class Morpion {
         board.display();
 
         this.currentSquare = Pion.Croix;
-        this.name = joueur1;
        
         System.out.println("\n"+ "joueur1" + "\n"); 
         play();

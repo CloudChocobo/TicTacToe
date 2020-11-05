@@ -8,11 +8,16 @@ public class Morpion {
     private Pion currentSquare;
     private Joueur player;
 
+
+    // public void player(Joueur player1, Joueur player2) {
+    // }
         
     public Morpion() {
         this.board = new Board();
-        this.player = new Joueur("Toto");
+        this.player = new Joueur("Kiki");
+        
         System.out.println("\n" + "Bienvenue au jeu du morpion ! <3 <3 <3" + "\n");
+
     }
 
     public void newGame() {
@@ -21,23 +26,23 @@ public class Morpion {
 
         this.currentSquare = Pion.Croix;
        
-        System.out.println("\n"+ "joueur1" + "\n"); 
+        System.out.println("\n"+ this.player.name + "\n"); 
         play();
-        System.out.println("\n"+"joueur 2" + "\n");
+        System.out.println("\n"+ this.player.name + "\n");
         play();
-        System.out.println("\n"+ "joueur1" + "\n"); 
+        System.out.println("\n"+ this.player.name + "\n"); 
         play();
-        System.out.println("\n"+"joueur 2" + "\n");
+        System.out.println("\n"+this.player.name + "\n");
         play();
-        System.out.println("\n"+ "joueur1" + "\n");
+        System.out.println("\n"+ this.player.name + "\n");
         play();
-        System.out.println("\n"+"joueur 2" + "\n");
+        System.out.println("\n"+ this.player.name + "\n");
         play();
-        System.out.println("\n"+ "joueur1" + "\n");
+        System.out.println("\n"+ this.player.name + "\n");
         play();
-        System.out.println("\n"+"joueur 2" + "\n");
+        System.out.println("\n"+ this.player.name + "\n");
         play();
-        System.out.println("\n"+ "joueur1" + "\n");
+        System.out.println("\n"+ this.player.name + "\n");
         play();
     }
 

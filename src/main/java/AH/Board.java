@@ -4,6 +4,34 @@ public class Board {
 
     Pion[][] cases;
 
+    public boolean gameEnd() {
+    if (this.cases[0][0].getSymbol().equals("x") && this.cases[0][1].getSymbol().equals("x") && this.cases[0][2].getSymbol().equals("x") || this.cases[0][0].getSymbol().equals("o") && this.cases[0][1].getSymbol().equals("o") && this.cases[0][2].getSymbol().equals("o")) {
+        return  true;
+    } else {
+        if (this.cases[1][0].getSymbol().equals("x") && this.cases[1][1].getSymbol().equals("x") && this.cases[1][2].getSymbol().equals("x") || this.cases[1][0].getSymbol().equals("o") && this.cases[1][1].getSymbol().equals("o") && this.cases[1][2].getSymbol().equals("o")) {
+        return true;
+        
+        }if (this.cases[2][0].getSymbol().equals("x") && this.cases[2][1].getSymbol().equals("x") && this.cases[2][2].getSymbol().equals("x") || this.cases[2][0].getSymbol().equals("o") && this.cases[2][1].getSymbol().equals("o") && this.cases[2][2].getSymbol().equals("o")) {
+        return true; 
+        
+        }if (this.cases[0][0].getSymbol().equals("x") && this.cases[1][0].getSymbol().equals("x") && this.cases[2][0].getSymbol().equals("x") || this.cases[0][0].getSymbol().equals("o") && this.cases[1][0].getSymbol().equals("o") && this.cases[2][0].getSymbol().equals("o")) {
+        return true;
+        
+        }if (this.cases[0][1].getSymbol().equals("x") && this.cases[1][1].getSymbol().equals("x") && this.cases[2][1].getSymbol().equals("x") || this.cases[0][1].getSymbol().equals("o") && this.cases[1][1].getSymbol().equals("o") && this.cases[2][1].getSymbol().equals("o")) {
+        return true;
+        
+        }if (this.cases[0][2].getSymbol().equals("x") && this.cases[1][2].getSymbol().equals("x") && this.cases[2][2].getSymbol().equals("x") || this.cases[0][2].getSymbol().equals("o") && this.cases[1][2].getSymbol().equals("o") && this.cases[2][2].getSymbol().equals("o")) {
+        return true;
+        
+        }if (this.cases[0][0].getSymbol().equals("x") && this.cases[1][1].getSymbol().equals("x") && this.cases[2][2].getSymbol().equals("x") || this.cases[0][0].getSymbol().equals("o") && this.cases[1][1].getSymbol().equals("o") && this.cases[2][2].getSymbol().equals("o")) {
+        return true;
+        
+        }if (this.cases[2][0].getSymbol().equals("x") && this.cases[1][1].getSymbol().equals("x") && this.cases[0][2].getSymbol().equals("x") || this.cases[2][0].getSymbol().equals("o") && this.cases[1][1].getSymbol().equals("o") && this.cases[0][2].getSymbol().equals("o")) {
+        return true;
+        }
+    return false;
+    }
+}
     public Board() {
         this.cases = new Pion[3][3];
         for (int x = 0; x < cases.length; x++) {

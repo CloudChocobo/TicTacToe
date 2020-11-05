@@ -6,26 +6,38 @@ public class Morpion {
 
     private Board board;
     private Pion currentSquare;
+    private Joueur name;
 
+        
     public Morpion() {
         this.board = new Board();
         System.out.println("\n" + "Bienvenue au jeu du morpion ! <3 <3 <3" + "\n");
     }
-    
+
     public void newGame() {
-        System.out.println("\n"+"XO XO Commençons une nouvelle partie. XO XO"+"\n");
+        System.out.println("XO XO Commençons une nouvelle partie. XO XO");
         board.display();
 
         this.currentSquare = Pion.Croix;
-
+        this.name = joueur1;
+       
+        System.out.println("\n"+ "joueur1" + "\n"); 
         play();
+        System.out.println("\n"+"joueur 2" + "\n");
         play();
+        System.out.println("\n"+ "joueur1" + "\n"); 
         play();
+        System.out.println("\n"+"joueur 2" + "\n");
         play();
+        System.out.println("\n"+ "joueur1" + "\n");
         play();
+        System.out.println("\n"+"joueur 2" + "\n");
         play();
+        System.out.println("\n"+ "joueur1" + "\n");
         play();
+        System.out.println("\n"+"joueur 2" + "\n");
         play();
+        System.out.println("\n"+ "joueur1" + "\n");
         play();
     }
 
@@ -44,6 +56,8 @@ public class Morpion {
         } else {
             currentSquare = Pion.Croix;
         }
+        
     }
+
 
 }

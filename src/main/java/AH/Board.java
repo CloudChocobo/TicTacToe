@@ -27,11 +27,12 @@ public class Board {
             }
             System.out.println("|");
         }
-        System.out.println();
+
     }
 
     public void put(Pion square, int x, int y) {
         this.cases[x][y] = square;
     }
-
+        
+    
 }

@@ -2,20 +2,31 @@ package AH;
 
 public class Joueur {
 
-    String name;
-
+    public String name;
+    
+    
     public Joueur(String name) {
         this.setName(name);
     }
-    
+
     public String getName() {
          return name;
     }
 
-    public void setName(String name) {
+	private void setName(String name) {
         this.name = name;
     }
 
-    
-  
 }
+
+
+    
+
+	// public boolean getPlaying() {
+	// 	return false;
+	// }
+
+	// public void setWinning(boolean b) {
+	// }
+    
+

@@ -16,4 +16,9 @@ public enum Pion {
     public void setSymbol(String symbol) {
         this.symbol = symbol;
     }
+
+	public static boolean gameEndBoard() {
+		return false;
+	}
+    
 }

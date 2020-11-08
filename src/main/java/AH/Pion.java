@@ -1,7 +1,7 @@
 package AH;
 
 public enum Pion {
-    Croix("x"), Rond("o"), EMPTY(" ");
+    CROIX("X"), ROND("O"), EMPTY(" ");
 
     private String symbol;
 
@@ -16,9 +16,5 @@ public enum Pion {
     public void setSymbol(String symbol) {
         this.symbol = symbol;
     }
-
-	public static boolean gameEndBoard() {
-		return false;
-	}
     
 }

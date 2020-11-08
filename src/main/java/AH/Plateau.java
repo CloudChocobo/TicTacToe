@@ -4,7 +4,7 @@ package AH;
 public class Plateau {
     
 	Pion[][] cases;
-    private Pion currentSquare;
+    
 
     // public boolean gameEndBoard() {
     // if (this.cases[0][0].getSymbol().equals("x") && this.cases[0][1].getSymbol().equals("x") && this.cases[0][2].getSymbol().equals("x") || this.cases[0][0].getSymbol().equals("o") && this.cases[0][1].getSymbol().equals("o") && this.cases[0][2].getSymbol().equals("o")) {
@@ -70,7 +70,7 @@ public class Plateau {
 
     //poser pion sur case
     public void put(Pion Case, int x, int y) {
-        this.cases[x][y] = Case;  
-    
+            this.cases[x][y] = Case;  
     }
+    
 }

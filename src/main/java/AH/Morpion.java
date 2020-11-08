@@ -25,14 +25,20 @@ public class Morpion {
         // on commence avec X
         Pion pionActuel = Pion.CROIX;
 
-        for (int numeroDeTour = 0; numeroDeTour < 3; numeroDeTour++) {
+        for (int numeroDeTour = 0; numeroDeTour < 9; numeroDeTour++) {
             joueUnTour(pionActuel);
             if (pionActuel == Pion.CROIX) {
                 pionActuel = Pion.ROND;
             } else {
                 pionActuel = Pion.CROIX;
             }
+            if (board.troisEnligne()) {
+                System.out.println("\nBravo," + this.board.pions.length +" à la suite, vous avez gagné.");
+                proposeUneNouvellePartie();
+                return;
+            }
         }
+
         gereLaFinDePartie();
         proposeUneNouvellePartie();
     }
@@ -41,9 +47,9 @@ public class Morpion {
         Scanner scan = new Scanner(System.in);
         System.out.println("\nVoulez-vous rejouer? \nTapez O pour Oui, Taper N pour Non.");
         String motEntré = scan.nextLine();
-        if (motEntré.equals("O")) {
+        if (motEntré.equalsIgnoreCase("O")) {
             newGame();
-        } else if (motEntré.equals("N")) {
+        } else {
             System.out.println("\n*****\nBonne journée.");
         }
     }
@@ -58,7 +64,7 @@ public class Morpion {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Où voulez-vous jouer ?\nEntrez le numéro de ligne entre 0 et 2 :");
+        System.out.println("Où voulez-vous jouer '" + pion.getSymbol() + "' ?\nEntrez le numéro de ligne entre 0 et 2 :");
         int x = scan.nextInt();
 
         System.out.println("Entrez maintenant le numéro de la colonne entre 0 et 2 :");

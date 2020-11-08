@@ -1,76 +1,86 @@
 package AH;
 
-
 public class Plateau {
-    
-	Pion[][] cases;
-    
 
-    // public boolean gameEndBoard() {
-    // if (this.cases[0][0].getSymbol().equals("x") && this.cases[0][1].getSymbol().equals("x") && this.cases[0][2].getSymbol().equals("x") || this.cases[0][0].getSymbol().equals("o") && this.cases[0][1].getSymbol().equals("o") && this.cases[0][2].getSymbol().equals("o")) {
-        
-    //     return  true;
-    // } else {
-    //     if (this.cases[1][0].getSymbol().equals("x") && this.cases[1][1].getSymbol().equals("x") && this.cases[1][2].getSymbol().equals("x") || this.cases[1][0].getSymbol().equals("o") && this.cases[1][1].getSymbol().equals("o") && this.cases[1][2].getSymbol().equals("o")) {
-    //     return true;
-        
-    //     }if (this.cases[2][0].getSymbol().equals("x") && this.cases[2][1].getSymbol().equals("x") && this.cases[2][2].getSymbol().equals("x") || this.cases[2][0].getSymbol().equals("o") && this.cases[2][1].getSymbol().equals("o") && this.cases[2][2].getSymbol().equals("o")) {
-    //     return true; 
-        
-    //     }if (this.cases[0][0].getSymbol().equals("x") && this.cases[1][0].getSymbol().equals("x") && this.cases[2][0].getSymbol().equals("x") || this.cases[0][0].getSymbol().equals("o") && this.cases[1][0].getSymbol().equals("o") && this.cases[2][0].getSymbol().equals("o")) {
-    //     return true;
-        
-    //     }if (this.cases[0][1].getSymbol().equals("x") && this.cases[1][1].getSymbol().equals("x") && this.cases[2][1].getSymbol().equals("x") || this.cases[0][1].getSymbol().equals("o") && this.cases[1][1].getSymbol().equals("o") && this.cases[2][1].getSymbol().equals("o")) {
-    //     return true;
-        
-    //     }if (this.cases[0][2].getSymbol().equals("x") && this.cases[1][2].getSymbol().equals("x") && this.cases[2][2].getSymbol().equals("x") || this.cases[0][2].getSymbol().equals("o") && this.cases[1][2].getSymbol().equals("o") && this.cases[2][2].getSymbol().equals("o")) {
-    //     return true;
-        
-    //     }if (this.cases[0][0].getSymbol().equals("x") && this.cases[1][1].getSymbol().equals("x") && this.cases[2][2].getSymbol().equals("x") || this.cases[0][0].getSymbol().equals("o") && this.cases[1][1].getSymbol().equals("o") && this.cases[2][2].getSymbol().equals("o")) {
-    //     return true;
-        
-    //     }if (this.cases[2][0].getSymbol().equals("x") && this.cases[1][1].getSymbol().equals("x") && this.cases[0][2].getSymbol().equals("x") || this.cases[2][0].getSymbol().equals("o") && this.cases[1][1].getSymbol().equals("o") && this.cases[0][2].getSymbol().equals("o")) {
-    //     return true;
-    //     }
-    // return false;
-    // }
-    //}
+    Pion[][] pions;
 
-
-    
-// déclarer la grille
+    // déclarer la grille
     public Plateau() {
-        this.cases = new Pion[3][3];
-        for (int x = 0; x < cases.length; x++) {
-            for (int y = 0; y < cases[x].length; y++) {
-                cases[x][y] = Pion.EMPTY;
+        this.pions = new Pion[3][3];
+        for (int x = 0; x < pions.length; x++) {
+            for (int y = 0; y < pions[x].length; y++) {
+                pions[x][y] = Pion.EMPTY;
             }
         }
     }
-
 
     // afficher la grille
 
     public void display() {
         System.out.println();
         System.out.print(" ");
-        for (int x = 0; x < cases.length; x++) {
+        for (int x = 0; x < pions.length; x++) {
             System.out.print(" " + x);
         }
         System.out.println();
-        for (int x = 0; x < cases.length; x++) {
+        for (int x = 0; x < pions.length; x++) {
             System.out.print(x);
-            for (int y = 0; y < cases[x].length; y++) {
-                System.out.print("|" + cases[x][y].getSymbol());
+            for (int y = 0; y < pions[x].length; y++) {
+                System.out.print("|" + pions[x][y].getSymbol());
             }
             System.out.println("|");
         }
 
     }
 
-    //poser pion sur case
-    public void put(Pion Case, int x, int y) {
-            this.cases[x][y] = Case;  
+    // poser pion sur case
+    public void put(Pion pion, int x, int y) {
+        this.pions[x][y] = pion;
     }
-    
+
+    public boolean troisEnligne() { 
+        if (this.pions[0][0].equals(Pion.CROIX) && this.pions[0][1].equals(Pion.CROIX)
+                && this.pions[0][2].equals(Pion.CROIX)
+                || this.pions[0][0].equals(Pion.ROND) && this.pions[0][1].equals(Pion.ROND)
+                        && this.pions[0][2].equals(Pion.ROND)) {
+            return true;
+        } else if (this.pions[1][0].equals(Pion.CROIX) && this.pions[1][1].equals(Pion.CROIX)
+                && this.pions[1][2].equals(Pion.CROIX)
+                || this.pions[1][0].equals(Pion.ROND) && this.pions[1][1].equals(Pion.ROND)
+                        && this.pions[1][2].equals(Pion.ROND)) {
+            return true;
+        } else if (this.pions[2][0].equals(Pion.CROIX) && this.pions[2][1].equals(Pion.CROIX)
+                && this.pions[2][2].equals(Pion.CROIX)
+                || this.pions[2][0].equals(Pion.ROND) && this.pions[2][1].equals(Pion.ROND)
+                        && this.pions[2][2].equals(Pion.ROND)) {
+            return true;
+        } else if (this.pions[0][0].equals(Pion.CROIX) && this.pions[1][0].equals(Pion.CROIX)
+                && this.pions[2][0].equals(Pion.CROIX)
+                || this.pions[0][0].equals(Pion.ROND) && this.pions[1][0].equals(Pion.ROND)
+                        && this.pions[2][0].equals(Pion.ROND)) {
+            return true;
+        } else if (this.pions[0][1].equals(Pion.CROIX) && this.pions[1][1].equals(Pion.CROIX)
+                && this.pions[2][1].equals(Pion.CROIX)
+                || this.pions[0][1].equals(Pion.ROND) && this.pions[1][1].equals(Pion.ROND)
+                        && this.pions[2][1].equals(Pion.ROND)) {
+            return true;
+        } else if (this.pions[0][2].equals(Pion.CROIX) && this.pions[1][2].equals(Pion.CROIX)
+                && this.pions[2][2].equals(Pion.CROIX)
+                || this.pions[0][2].equals(Pion.ROND) && this.pions[1][2].equals(Pion.ROND)
+                        && this.pions[2][2].equals(Pion.ROND)) {
+            return true;
+        } else if (this.pions[0][0].equals(Pion.CROIX) && this.pions[1][1].equals(Pion.CROIX)
+                && this.pions[2][2].equals(Pion.CROIX)
+                || this.pions[0][0].equals(Pion.ROND) && this.pions[1][1].equals(Pion.ROND)
+                        && this.pions[2][2].equals(Pion.ROND)) {
+            return true;
+        } else if (this.pions[0][2].equals(Pion.CROIX) && this.pions[1][1].equals(Pion.CROIX)
+                && this.pions[2][0].equals(Pion.CROIX)
+                || this.pions[0][2].equals(Pion.ROND) && this.pions[1][1].equals(Pion.ROND)
+                        && this.pions[2][0].equals(Pion.ROND)) {
+            return true;
+        }
+        return false;
+    }
+
 }

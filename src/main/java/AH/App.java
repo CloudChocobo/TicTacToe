@@ -7,7 +7,7 @@ public final class App {
 //initialisation morpion
 
     public static void main(String[] args) {
-        Morpion morpion = new Morpion();
+        Morpion morpion = new Morpion(3);
         morpion.newGame();
     }
 }

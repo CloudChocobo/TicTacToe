@@ -17,10 +17,6 @@ public class Joueur {
         this.name = name;
     }
 
-	public int play() {
-		return 0;
-	}
-
 }
 
 

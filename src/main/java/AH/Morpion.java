@@ -14,18 +14,17 @@ public class Morpion {
         this.board = new Plateau();
 
         System.out.println("\n" + "Bienvenue au jeu du morpion ! <3 <3 <3" + "\n");
-
     }
 
     public void newGame() {
-        System.out.println("XO XO Commençons une nouvelle partie. XO XO");
+        System.out.println("\nXO XO Commençons une nouvelle partie. XO XO");
 
         System.out.println("\n" + this.joueur1.getName() + " vous aurez le pion 'X'.");
         board.display();
 
         // on commence avec X
         Pion pionActuel = Pion.CROIX;
-        
+
         for (int numeroDeTour = 0; numeroDeTour < 3; numeroDeTour++) {
             joueUnTour(pionActuel);
             if (pionActuel == Pion.CROIX) {
@@ -34,10 +33,24 @@ public class Morpion {
                 pionActuel = Pion.CROIX;
             }
         }
+        gereLaFinDePartie();
+        proposeUneNouvellePartie();
+    }
+
+    private void proposeUneNouvellePartie() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("\nVoulez-vous rejouer? \nTapez O pour Oui, Taper N pour Non.");
+        String motEntré = scan.nextLine();
+        if (motEntré.equals("O")) {
+            newGame();
+        } else if (motEntré.equals("N")) {
+            System.out.println("\n*****\nBonne journée.");
+        }
+    }
+
+    private void gereLaFinDePartie() {
         System.out.println("La partie est terminée.");
         System.out.println("Match nul.");
-
-        System.out.println("\n*****\nBonne journée.");
     }
 
     // entrée des coordonnées abscisse puis ordonnée

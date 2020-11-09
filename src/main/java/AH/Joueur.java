@@ -2,21 +2,32 @@ package AH;
 
 public class Joueur {
 
-    public String name;
-    
-    
-    public Joueur(String name) {
-        this.setName(name);
+    private String name;
+    private Pion pion;
+
+    public Joueur(String name, Pion pion) {
+        this.name = name;
+        this.pion = pion;
     }
 
     public String getName() {
-         return name;
+        return name;
     }
 
-	private void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-}
-    
+    public Pion getPion() {
+        return pion;
+    }
 
+    public void setPion(Pion pion) {
+        this.pion = pion;
+    }
+
+    public String displayNameAndSymbol() {
+        return name + " (" + pion.getSymbol() + ")";
+    }
+
+}

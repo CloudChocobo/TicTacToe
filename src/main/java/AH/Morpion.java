@@ -7,11 +7,15 @@ public class Morpion {
 
     private Plateau board;
     private int gameSize;
+    private Joueur joueur1, joueur2;
 
     // constructor
     public Morpion(int gameSize) {
         this.gameSize = gameSize;
-        System.out.println("\n" + "Bienvenue au jeu du morpion ! <3 <3 <3");
+        System.out.println("\nBienvenue au jeu du morpion ! <3 <3 <3");
+
+        joueur1 = createPlayer(1, Pion.CROIX);
+        joueur2 = createPlayer(2, Pion.ROND);
     }
 
     public void newGame() {
@@ -20,34 +24,34 @@ public class Morpion {
         this.board = new Plateau(gameSize);
         board.display();
 
-        // on commence avec X
-        Pion pionActuel = Pion.CROIX;
+        // on commence avec Joueur 1
+        Joueur joueurActuel = joueur1;
 
         for (int numeroDeTour = 0; numeroDeTour < gameSize * gameSize; numeroDeTour++) {
-            joueUnTour(pionActuel);
+            joueUnTour(joueurActuel);
             if (board.troisEnligne()) {
-                System.out.println(
-                        "\nBravo ! " + this.gameSize + " en ligne : '" + pionActuel.getSymbol() + "' a gagné.");
+                System.out.println("\nBravo ! " + this.gameSize + " en ligne : '" + joueurActuel.displayNameAndSymbol()
+                        + "' a gagné.");
                 proposeUneNouvellePartie();
                 return;
             }
             if (board.troisALaVerticale()) {
-                System.out.println(
-                        "\nBravo ! " + this.gameSize + " à la verticale : '" + pionActuel.getSymbol() + "' a gagné.");
+                System.out.println("\nBravo ! " + this.gameSize + " à la verticale : '"
+                        + joueurActuel.displayNameAndSymbol() + "' a gagné.");
                 proposeUneNouvellePartie();
                 return;
             }
             if (board.troisEnDiagonale()) {
-                System.out.println(
-                        "\nBravo ! " + this.gameSize + " en diagonal : '" + pionActuel.getSymbol() + "' a gagné.");
+                System.out.println("\nBravo ! " + this.gameSize + " en diagonal : '"
+                        + joueurActuel.displayNameAndSymbol() + "' a gagné.");
                 proposeUneNouvellePartie();
                 return;
             }
 
-            if (pionActuel == Pion.CROIX) {
-                pionActuel = Pion.ROND;
+            if (joueurActuel == joueur1) {
+                joueurActuel = joueur2;
             } else {
-                pionActuel = Pion.CROIX;
+                joueurActuel = joueur1;
             }
         }
 
@@ -72,13 +76,13 @@ public class Morpion {
     }
 
     // entrée des coordonnées abscisse puis ordonnée
-    private void joueUnTour(Pion pion) {
+    private void joueUnTour(Joueur joueur) {
 
         boolean error = true;
         int x = 0;
         int y = 0;
 
-        System.out.println("Où voulez-vous jouer '" + pion.getSymbol() + "' ?");
+        System.out.println("Où voulez-vous jouer " + joueur.displayNameAndSymbol() + " ?");
 
         while (error) {
             Scanner scan = new Scanner(System.in);
@@ -117,10 +121,20 @@ public class Morpion {
 
         if (board.isNotEmpty(x, y)) {
             System.out.println("@ Cette case est déjà prise !");
-            joueUnTour(pion);
+            joueUnTour(joueur);
         }
 
-        this.board.put(pion, x, y);
+        this.board.put(joueur.getPion(), x, y);
         this.board.display();
+    }
+
+    private Joueur createPlayer(int numeroJoueur, Pion pion) {
+        System.out.println("\nQuel est ton nom Joueur" + numeroJoueur + " ?");
+
+        Scanner clavier = new Scanner(System.in);
+        String entreeClavier = clavier.nextLine();
+        Joueur joueur = new Joueur(entreeClavier, pion);
+        System.out.println("\nMerci " + joueur.displayNameAndSymbol() + ".");
+        return joueur;
     }
 }

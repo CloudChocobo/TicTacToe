@@ -25,7 +25,6 @@ public class Plateau {
             }
             System.out.println("|");
         }
-
     }
 
     // poser pion sur case
@@ -88,8 +87,30 @@ public class Plateau {
         return false;
     }
 
-    /*private boolean hasAHorizontalLine(int numeroLigne, Pion pionActuel) {
-        for (int numeroColonne = 0; numeroColonne < pions[numeroLigne].length; numeroColonne++) {
+    Pion[][] createPlateauWithEmpty(int taille) {
+        Pion[][] plateauVide = new Pion[taille][taille];
+        for (int x = 0; x < plateauVide.length; x++) {
+            for (int y = 0; y < plateauVide[x].length; y++) {
+                plateauVide[x][y] = Pion.EMPTY;
+            }
+        }
+        return plateauVide;
+    }
+
+    public boolean isNotEmpty(int x, int y) {
+        return this.pions[x][y] != Pion.EMPTY;
+    }
+
+    public Pion[][] getPions() {
+        return pions;
+    }
+
+    public void setPions(Pion[][] pions) {
+        this.pions = pions;
+    }
+
+    private boolean hasAVerticalLine(int numeroColonne, Pion pionActuel) {
+        for (int numeroLigne = 0; numeroLigne < pions.length; numeroLigne++) {
             if (pions[numeroLigne][numeroColonne] != pionActuel) {
                 return false;
             }
@@ -97,16 +118,8 @@ public class Plateau {
         return true;
     }
 
-    /**
-     * Teste si la colonne dont le numéro est fourni est entièrement remplie de
-     * {@code Pion}.pionActuel
-     * 
-     * @param numeroColonne le numéro de colonne à tester
-     * @param pionActuel    le symbole : 'X' ou 'O'
-     * @return
-     */
-    /*private boolean hasAVerticalLine(int numeroColonne, Pion pionActuel) {
-        for (int numeroLigne = 0; numeroLigne < pions.length; numeroLigne++) {
+    private boolean hasAHorizontalLine(int numeroLigne, Pion pionActuel) {
+        for (int numeroColonne = 0; numeroColonne < pions[numeroLigne].length; numeroColonne++) {
             if (pions[numeroLigne][numeroColonne] != pionActuel) {
                 return false;
             }
@@ -130,24 +143,5 @@ public class Plateau {
             }
         }
         return true;
-    }*/
-
-    Pion[][] createPlateauWithEmpty(int taille) {
-        Pion[][] plateauVide = new Pion[taille][taille];
-        for (int x = 0; x < plateauVide.length; x++) {
-            for (int y = 0; y < plateauVide[x].length; y++) {
-                plateauVide[x][y] = Pion.EMPTY;
-            }
-        }
-        return plateauVide;
     }
-
-    public Pion[][] getPions() {
-        return pions;
-    }
-
-    public void setPions(Pion[][] pions) {
-        this.pions = pions;
-    }
-
 }

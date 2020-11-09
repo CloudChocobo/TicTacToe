@@ -18,15 +18,5 @@ public class Joueur {
     }
 
 }
-
-
-    
-
-	// public boolean getPlaying() {
-	// 	return false;
-	// }
-
-	// public void setWinning(boolean b) {
-	// }
     
 

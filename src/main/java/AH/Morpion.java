@@ -1,5 +1,6 @@
 package AH;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Morpion {
@@ -12,10 +13,10 @@ public class Morpion {
         this.gameSize = gameSize;
         System.out.println("\n" + "Bienvenue au jeu du morpion ! <3 <3 <3");
     }
-    
+
     public void newGame() {
         System.out.println("\nXO XO Commençons une nouvelle partie. XO XO");
-        
+
         this.board = new Plateau(gameSize);
         board.display();
 
@@ -72,14 +73,52 @@ public class Morpion {
 
     // entrée des coordonnées abscisse puis ordonnée
     private void joueUnTour(Pion pion) {
-        Scanner scan = new Scanner(System.in);
 
-        System.out
-                .println("Où voulez-vous jouer '" + pion.getSymbol() + "' ?\nEntrez le numéro de ligne entre 0 et 2 :");
-        int x = scan.nextInt();
+        boolean error = true;
+        int x = 0;
+        int y = 0;
 
-        System.out.println("Entrez maintenant le numéro de la colonne entre 0 et 2 :");
-        int y = scan.nextInt();
+        System.out.println("Où voulez-vous jouer '" + pion.getSymbol() + "' ?");
+
+        while (error) {
+            Scanner scan = new Scanner(System.in);
+
+            System.out.println("Entrez le numéro de ligne entre 0 et " + (this.gameSize - 1) + " :");
+            try {
+                x = scan.nextInt();
+                if (x < 0 || x >= this.gameSize) {
+                    throw new InputMismatchException();
+                }
+            } catch (InputMismatchException ime) {
+                System.out.println("@ Vous n'avez pas respecté les entrées possibles ! Merci de recommencer.");
+                continue;
+            }
+
+            error = false;
+        }
+
+        error = true;
+        while (error) {
+            Scanner scan = new Scanner(System.in);
+
+            System.out.println("Entrez maintenant le numéro de la colonne entre 0 et 2 :");
+            try {
+                y = scan.nextInt();
+                if (y < 0 || y >= this.gameSize) {
+                    throw new InputMismatchException();
+                }
+            } catch (InputMismatchException ime) {
+                System.out.println("@ Vous n'avez pas respecté les entrées possibles ! Merci de recommencer.");
+                continue;
+            }
+
+            error = false;
+        }
+
+        if (board.isNotEmpty(x, y)) {
+            System.out.println("@ Cette case est déjà prise !");
+            joueUnTour(pion);
+        }
 
         this.board.put(pion, x, y);
         this.board.display();

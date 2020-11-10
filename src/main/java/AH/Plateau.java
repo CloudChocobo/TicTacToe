@@ -21,7 +21,7 @@ public class Plateau {
         for (int x = 0; x < pions.length; x++) {
             System.out.print(x);
             for (int y = 0; y < pions[x].length; y++) {
-                System.out.print("|" + pions[x][y].getSymbol());
+                System.out.print("|"+ pions[x][y].getSymbol());
             }
             System.out.println("|");
         }
